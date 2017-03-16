@@ -1783,7 +1783,7 @@ describe('Select', () => {
 		});
 
 		it('removes the last selected option with backspace when search text is set', () => {
-			typeSearchText('o');
+			typeSearchText('a');
 			setValueProp(['four','three']);
 			onChange.reset();  // Ignore previous onChange calls
 			pressBackspace();

@@ -479,7 +479,7 @@ const Select = React.createClass({
 				if (!this.state.inputValue && this.props.backspaceRemoves) {
 					event.preventDefault();
 					this.popValue();
-				} else if (this.state.inputValue && this.state.inputValue.length === 1 && this.props.backspaceRemoves) {
+				} else if (this.props.backspaceRemoves && this.state.inputValue.length === 1) {
 					this.popValue();
 				}
 			return;
