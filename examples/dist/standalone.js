@@ -897,6 +897,7 @@ var Select = _react2['default'].createClass({
 		noResultsText: stringOrNode, // placeholder displayed when there are no matching search results
 		onBlur: _react2['default'].PropTypes.func, // onBlur handler: function (event) {}
 		onBlurResetsInput: _react2['default'].PropTypes.bool, // whether input is cleared on blur
+		onBlurSelectsFocusedOption: _react2['default'].PropTypes.bool, // whether to select the currently focused option on blur
 		onChange: _react2['default'].PropTypes.func, // onChange handler: function (newValue) {}
 		onClose: _react2['default'].PropTypes.func, // fires when the menu is closed
 		onCloseResetsInput: _react2['default'].PropTypes.bool, // whether input is cleared when menu is closed through the arrow
@@ -960,6 +961,7 @@ var Select = _react2['default'].createClass({
 			multi: false,
 			noResultsText: 'No results found',
 			onBlurResetsInput: true,
+			onBlurSelectsFocusedOption: false,
 			onCloseResetsInput: true,
 			openAfterFocus: false,
 			optionComponent: _Option2['default'],
@@ -1256,6 +1258,10 @@ var Select = _react2['default'].createClass({
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
 		}
+		if (this.props.onBlurSelectsFocusedOption) {
+			this.selectFocusedOption();
+		}
+
 		this.setState(onBlurredState);
 	},
 
